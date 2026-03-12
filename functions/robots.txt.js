@@ -2,7 +2,7 @@ export async function onRequest(context) {
   const { env } = context
   
   try {
-    const settings = await env.WEBSTACK_DATA.get('settings', { type: 'json' }) || {}
+    const settings = await env.WOW_NAV_DATA.get('settings', { type: 'json' }) || {}
     const baseUrl = settings.siteUrl || 'https://960119.xyz'
     const currentDate = new Date().toISOString()
     
@@ -34,3 +34,4 @@ Crawl-delay: 1
     return new Response('Error generating robots.txt', { status: 500 })
   }
 }
+

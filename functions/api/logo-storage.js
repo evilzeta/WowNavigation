@@ -1,5 +1,4 @@
-// CORS 响应头
-const corsHeaders = {
+// CORS 响应�?const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
   'Access-Control-Allow-Headers': 'Content-Type, Authorization',
@@ -16,7 +15,7 @@ function handleOptions() {
 // 获取Logo存储
 async function getLogoStorage(env) {
   try {
-    const data = await env.WEBSTACK_DATA.get('logo_storage')
+    const data = await env.WOW_NAV_DATA.get('logo_storage')
     if (data) {
       return JSON.parse(data)
     }
@@ -29,7 +28,7 @@ async function getLogoStorage(env) {
 
 // 保存Logo存储
 async function saveLogoStorage(env, storage) {
-  await env.WEBSTACK_DATA.put('logo_storage', JSON.stringify(storage))
+  await env.WOW_NAV_DATA.put('logo_storage', JSON.stringify(storage))
 }
 
 // 下载Logo图片并转换为Base64
@@ -43,8 +42,7 @@ async function downloadLogo(logoUrl) {
     const arrayBuffer = await response.arrayBuffer()
     const base64 = btoa(String.fromCharCode(...new Uint8Array(arrayBuffer)))
     
-    // 检测图片类型
-    const contentType = response.headers.get('content-type') || 'image/png'
+    // 检测图片类�?    const contentType = response.headers.get('content-type') || 'image/png'
     
     return {
       data: `data:${contentType};base64,${base64}`,
@@ -88,8 +86,7 @@ export async function onRequest(context) {
       const logo = storage[domain]
       
       if (!logo) {
-        // 返回默认logo（Font Awesome地球图标）
-        return new Response(JSON.stringify({
+        // 返回默认logo（Font Awesome地球图标�?        return new Response(JSON.stringify({
           success: true,
           data: {
             type: 'default',
@@ -181,3 +178,4 @@ export async function onRequest(context) {
     })
   }
 }
+

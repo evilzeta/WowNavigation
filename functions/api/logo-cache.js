@@ -1,5 +1,4 @@
-// CORS 响应头
-const corsHeaders = {
+// CORS 响应�?const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
   'Access-Control-Allow-Headers': 'Content-Type, Authorization',
@@ -16,7 +15,7 @@ function handleOptions() {
 // 获取Logo缓存
 async function getLogoCache(env) {
   try {
-    const data = await env.WEBSTACK_DATA.get('logo_cache')
+    const data = await env.WOW_NAV_DATA.get('logo_cache')
     if (data) {
       return JSON.parse(data)
     }
@@ -29,7 +28,7 @@ async function getLogoCache(env) {
 
 // 保存Logo缓存
 async function saveLogoCache(env, cache) {
-  await env.WEBSTACK_DATA.put('logo_cache', JSON.stringify(cache))
+  await env.WOW_NAV_DATA.put('logo_cache', JSON.stringify(cache))
 }
 
 export async function onRequest(context) {
@@ -117,3 +116,4 @@ export async function onRequest(context) {
     })
   }
 }
+

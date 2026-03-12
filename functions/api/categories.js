@@ -2,7 +2,7 @@
 const DEFAULT_CATEGORIES = [
   { id: 'all', name: '全部', slug: 'all', sort_order: 0 },
   { id: 'design', name: '设计', slug: 'design', sort_order: 1 },
-  { id: 'dev', name: '开发', slug: 'dev', sort_order: 2 },
+  { id: 'dev', name: '开�?, slug: 'dev', sort_order: 2 },
   { id: 'tools', name: '工具', slug: 'tools', sort_order: 3 },
   { id: 'ai', name: 'AI', slug: 'ai', sort_order: 4 },
   { id: 'news', name: '新闻', slug: 'news', sort_order: 5 },
@@ -10,7 +10,7 @@ const DEFAULT_CATEGORIES = [
   { id: 'edu', name: '学习', slug: 'edu', sort_order: 7 }
 ]
 
-// CORS 响应头
+// CORS 响应�?
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
@@ -26,15 +26,15 @@ function handleOptions() {
   })
 }
 
-// 获取所有分类
+// 获取所有分�?
 async function getCategories(env) {
   try {
-    const data = await env.WEBSTACK_DATA.get('categories')
+    const data = await env.WOW_NAV_DATA.get('categories')
     if (data) {
       return JSON.parse(data)
     }
     // 如果没有数据，初始化默认数据
-    await env.WEBSTACK_DATA.put('categories', JSON.stringify(DEFAULT_CATEGORIES))
+    await env.WOW_NAV_DATA.put('categories', JSON.stringify(DEFAULT_CATEGORIES))
     return DEFAULT_CATEGORIES
   } catch (error) {
     console.error('获取分类数据失败:', error)
@@ -42,9 +42,9 @@ async function getCategories(env) {
   }
 }
 
-// 保存所有分类
+// 保存所有分�?
 async function saveCategories(env, categories) {
-  await env.WEBSTACK_DATA.put('categories', JSON.stringify(categories))
+  await env.WOW_NAV_DATA.put('categories', JSON.stringify(categories))
 }
 
 // 验证身份验证token
@@ -56,7 +56,7 @@ async function verifyAuth(env, request) {
     }
     
     const token = authHeader.substring(7)
-    const authData = await env.WEBSTACK_DATA.get('auth_token')
+    const authData = await env.WOW_NAV_DATA.get('auth_token')
     
     if (!authData) {
       return false
@@ -66,7 +66,7 @@ async function verifyAuth(env, request) {
     const now = Date.now()
     
     if (storedToken.expiresAt < now) {
-      await env.WEBSTACK_DATA.delete('auth_token')
+      await env.WOW_NAV_DATA.delete('auth_token')
       return false
     }
     
@@ -87,10 +87,10 @@ export async function onRequest(context) {
   }
 
   try {
-    // GET - 获取所有分类
+    // GET - 获取所有分�?
     if (method === 'GET') {
       const categories = await getCategories(env)
-      // 按排序顺序返回
+      // 按排序顺序返�?
       const sortedCategories = categories.sort((a, b) => (a.sort_order || 0) - (b.sort_order || 0))
       
       return new Response(JSON.stringify({
@@ -101,13 +101,13 @@ export async function onRequest(context) {
       })
     }
 
-    // POST - 添加新分类
+    // POST - 添加新分�?
     if (method === 'POST') {
       const isAuthenticated = await verifyAuth(env, request)
       if (!isAuthenticated) {
         return new Response(JSON.stringify({
           success: false,
-          error: '未授权访问'
+          error: '未授权访�?
         }), {
           status: 401,
           headers: corsHeaders
@@ -117,18 +117,18 @@ export async function onRequest(context) {
       const newCategory = await request.json()
       const categories = await getCategories(env)
       
-      // 检查slug是否已存在
+      // 检查slug是否已存�?
       if (categories.some(c => c.slug === newCategory.slug)) {
         return new Response(JSON.stringify({
           success: false,
-          error: '分类标识已存在'
+          error: '分类标识已存�?
         }), {
           status: 400,
           headers: corsHeaders
         })
       }
       
-      // 标记为新增分类，用于后端判断不执行网站关联
+      // 标记为新增分类，用于后端判断不执行网站关�?
       const isNewCategory = newCategory._isNew
       delete newCategory._isNew
       
@@ -153,7 +153,7 @@ export async function onRequest(context) {
       if (!isAuthenticated) {
         return new Response(JSON.stringify({
           success: false,
-          error: '未授权访问'
+          error: '未授权访�?
         }), {
           status: 401,
           headers: corsHeaders
@@ -167,7 +167,7 @@ export async function onRequest(context) {
       if (index === -1) {
         return new Response(JSON.stringify({
           success: false,
-          error: '分类不存在'
+          error: '分类不存�?
         }), {
           status: 404,
           headers: corsHeaders
@@ -195,7 +195,7 @@ export async function onRequest(context) {
       if (!isAuthenticated) {
         return new Response(JSON.stringify({
           success: false,
-          error: '未授权访问'
+          error: '未授权访�?
         }), {
           status: 401,
           headers: corsHeaders
@@ -221,7 +221,7 @@ export async function onRequest(context) {
       if (filteredCategories.length === categories.length) {
         return new Response(JSON.stringify({
           success: false,
-          error: '分类不存在'
+          error: '分类不存�?
         }), {
           status: 404,
           headers: corsHeaders
@@ -257,3 +257,4 @@ export async function onRequest(context) {
     })
   }
 }
+

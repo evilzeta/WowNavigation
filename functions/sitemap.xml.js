@@ -2,9 +2,9 @@ export async function onRequest(context) {
   const { env } = context
   
   try {
-    const sites = await env.WEBSTACK_DATA.get('sites', { type: 'json' }) || []
-    const categories = await env.WEBSTACK_DATA.get('categories', { type: 'json' }) || []
-    const settings = await env.WEBSTACK_DATA.get('settings', { type: 'json' }) || {}
+    const sites = await env.WOW_NAV_DATA.get('sites', { type: 'json' }) || []
+    const categories = await env.WOW_NAV_DATA.get('categories', { type: 'json' }) || []
+    const settings = await env.WOW_NAV_DATA.get('settings', { type: 'json' }) || {}
     
     const baseUrl = settings.siteUrl || 'https://960119.xyz'
     const currentDate = new Date().toISOString()
@@ -56,3 +56,4 @@ export async function onRequest(context) {
     return new Response('Error generating sitemap', { status: 500 })
   }
 }
+
