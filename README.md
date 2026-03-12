@@ -4,7 +4,7 @@
 
 ## 演示站点
 
-- [WowNavigation](https://960119.xyz)
+- [WowNavigation](https://960119.xyz) [哇塞导航](https://960119.xyz)
 
 ## 功能特性
 
