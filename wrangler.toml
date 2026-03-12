@@ -1,0 +1,12 @@
+name = "wow-navigation"
+compatibility_date = "2023-10-10"
+pages_build_output_dir = "./dist"
+
+# KV 命名空间绑定 - 用于存储网站数据
+# 部署前需要创建 KV 命名空间：
+# wrangler kv:namespace create "WEBSTACK_DATA"
+# 然后将返回的 id 填入下面
+[[kv_namespaces]]
+binding = "WEBSTACK_DATA"
+id = "your_kv_namespace_id"
+preview_id = "your_kv_preview_namespace_id"

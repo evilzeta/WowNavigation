@@ -1,0 +1,144 @@
+{
+  "sites": [
+    {
+      "id": 1,
+      "name": "GitHub",
+      "url": "https://github.com",
+      "logo": "https://github.githubassets.com/favicons/favicon.png",
+      "description": "全球最大的开源代码托管平台",
+      "category_id": "dev",
+      "tags": "开发,代码,Git",
+      "stars": 5,
+      "visits": 1500,
+      "is_visible": true,
+      "is_active": true,
+      "health_score": 100,
+      "created_at": "2024-01-01T00:00:00.000Z",
+      "last_checked": "2024-01-01T00:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "name": "Vue.js",
+      "url": "https://vuejs.org",
+      "logo": "https://vuejs.org/logo.svg",
+      "description": "渐进式JavaScript框架",
+      "category_id": "dev",
+      "tags": "前端,Vue,框架",
+      "stars": 5,
+      "visits": 1200,
+      "is_visible": true,
+      "is_active": true,
+      "health_score": 100,
+      "created_at": "2024-01-01T00:00:00.000Z",
+      "last_checked": "2024-01-01T00:00:00.000Z"
+    },
+    {
+      "id": 3,
+      "name": "Tailwind CSS",
+      "url": "https://tailwindcss.com",
+      "logo": "https://tailwindcss.com/favicon-32x32.png",
+      "description": "实用优先的CSS框架",
+      "category_id": "dev",
+      "tags": "前端,CSS,框架",
+      "stars": 4,
+      "visits": 800,
+      "is_visible": true,
+      "is_active": true,
+      "health_score": 100,
+      "created_at": "2024-01-01T00:00:00.000Z",
+      "last_checked": "2024-01-01T00:00:00.000Z"
+    },
+    {
+      "id": 4,
+      "name": "Figma",
+      "url": "https://figma.com",
+      "logo": "https://static.figma.com/app/icon/1/touch-180.png",
+      "description": "协作式界面设计工具",
+      "category_id": "design",
+      "tags": "设计,UI,协作",
+      "stars": 5,
+      "visits": 900,
+      "is_visible": true,
+      "is_active": true,
+      "health_score": 100,
+      "created_at": "2024-01-01T00:00:00.000Z",
+      "last_checked": "2024-01-01T00:00:00.000Z"
+    },
+    {
+      "id": 5,
+      "name": "ChatGPT",
+      "url": "https://chat.openai.com",
+      "logo": "https://chat.openai.com/favicon-32x32.png",
+      "description": "OpenAI的AI聊天机器人",
+      "category_id": "ai",
+      "tags": "AI,聊天,GPT",
+      "stars": 5,
+      "visits": 2000,
+      "is_visible": true,
+      "is_active": true,
+      "health_score": 100,
+      "created_at": "2024-01-01T00:00:00.000Z",
+      "last_checked": "2024-01-01T00:00:00.000Z"
+    }
+  ],
+  "categories": [
+    {
+      "id": "all",
+      "name": "全部",
+      "slug": "all",
+      "sort_order": 0
+    },
+    {
+      "id": "design",
+      "name": "设计",
+      "slug": "design",
+      "sort_order": 1
+    },
+    {
+      "id": "dev",
+      "name": "开发",
+      "slug": "dev",
+      "sort_order": 2
+    },
+    {
+      "id": "tools",
+      "name": "工具",
+      "slug": "tools",
+      "sort_order": 3
+    },
+    {
+      "id": "ai",
+      "name": "AI",
+      "slug": "ai",
+      "sort_order": 4
+    },
+    {
+      "id": "news",
+      "name": "新闻",
+      "slug": "news",
+      "sort_order": 5
+    },
+    {
+      "id": "shop",
+      "name": "购物",
+      "slug": "shop",
+      "sort_order": 6
+    },
+    {
+      "id": "edu",
+      "name": "学习",
+      "slug": "edu",
+      "sort_order": 7
+    }
+  ],
+  "settings": {
+    "siteTitle": "WowNavigation",
+    "siteDescription": "发现优质网站资源",
+    "sitesPerPage": 20,
+    "autoFetchInfo": true,
+    "enableCache": true,
+    "siteFooter": "© {{year}} WowNavigation. 保留所有权利.",
+    "defaultCategory": "all"
+  },
+  "logoCache": {}
+}
