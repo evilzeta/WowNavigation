@@ -22,10 +22,12 @@
 ### 管理功能
 - 管理员账户修改
 - 网站标题和页脚自定义
-- 多种 Logo 源选择
+- 批量 Logo 获取功能,并有多种 Logo 源选择
 - 网站标签管理
 - 访问量统计
-- 批量 Logo 获取功能
+- 配置AI API可自动获取收录网站的中英文简介
+- 后台可批量测试收录网站的网址是否访问正常
+  
 
 ### SEO 优化
 - 静态 HTML 生成
@@ -83,7 +85,7 @@ wrangler kv:namespace create "WEBSTACK_DATA"
 
 ```toml
 name = "wow-navigation"
-compatibility_date = "2023-10-10"
+compatibility_date = "2026-3-10"
 pages_build_output_dir = "./dist"
 
 [[kv_namespaces]]
