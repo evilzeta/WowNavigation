@@ -4,7 +4,7 @@
 
 ## 演示站点
 
-- [WowNavigation](https://960119.xyz)                     [哇塞导航](https://960119.xyz)
+- [哇塞导航](https://960119.xyz)
 
 ## 功能特性
 
@@ -22,17 +22,16 @@
 ### 管理功能
 - 管理员账户修改
 - 网站标题和页脚自定义
-- 批量 Logo 获取功能,并有多种 Logo 源选择
+- 多种 Logo 源选择
 - 网站标签管理
 - 访问量统计
-- 配置AI API可自动获取收录网站的中英文简介
-- 后台可批量测试收录网站的网址是否访问正常
-  
+- 批量 Logo 获取功能
 
 ### SEO 优化
 - 静态 HTML 生成
 - 自定义网站标题和描述
 - Open Graph 标签，优化社交媒体分享
+- Sitemap 生成
 
 ## 部署模式
 
@@ -58,7 +57,7 @@ npm install
 
 ```bash
 npm run dev
-# 访问 http://localhost:3000
+# 访问 http://localhost:5173
 ```
 
 ### 构建项目
@@ -73,32 +72,39 @@ npm run build:static
 
 ## 部署到 Cloudflare Pages
 
-### 1. 创建 KV 命名空间
+### 动态部署（需配置 KV）
+
+#### 1. 创建 KV 命名空间
 
 ```bash
 npm install -g wrangler
 wrangler login
-wrangler kv:namespace create "WEBSTACK_DATA"
+wrangler kv:namespace create "WOW_NAV_DATA"
 ```
 
-### 2. 配置 wrangler.toml
+#### 2. 配置 wrangler.toml
 
 ```toml
 name = "wow-navigation"
-compatibility_date = "2026-3-10"
+compatibility_date = "2023-10-10"
 pages_build_output_dir = "./dist"
 
 [[kv_namespaces]]
-binding = "WEBSTACK_DATA"
+binding = "WOW_NAV_DATA"
 id = "your_kv_namespace_id"
 preview_id = "your_kv_preview_id"
 ```
 
-### 3. 部署
+#### 3. 部署
 
 ```bash
-npm run build
-wrangler pages deploy dist
+npm run deploy
+```
+
+### 静态化部署
+
+```bash
+npm run deploy:static
 ```
 
 ## 默认管理员账号
@@ -108,22 +114,6 @@ wrangler pages deploy dist
 
 首次登录后请在后台修改密码。
 
-## 项目结构
-
-```
-webstack-kv/
-├── src/                  # Vue 源代码
-│   ├── components/       # 组件
-│   ├── views/           # 页面
-│   ├── stores/          # 状态管理
-│   └── router/          # 路由
-├── functions/           # Cloudflare Functions
-│   └── api/             # API 接口
-├── scripts/             # 构建脚本
-├── public/              # 静态资源
-├── data.json            # 静态数据
-└── wrangler.toml        # Cloudflare 配置
-```
 
 ## 技术栈
 
